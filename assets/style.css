@@ -50,7 +50,10 @@ body {
 	padding-block: 100px;
 	position: relative;
 }
-
+.picture.left img{
+	width: 560px;
+	height: 558px;
+}
 .picture.left::before {
 	content: ' ';
 	background-color: #E5975F;
@@ -69,8 +72,8 @@ body {
 }
 
 .picture img {
-	width: 100%;
-
+	max-width: 100%;
+	height: auto !important;
 }
 #about-me {
 	flex: 2
@@ -118,19 +121,30 @@ body {
 }
 .gallery-item {
 	position: absolute;
-	width: 100%;
-	height: 100%;
+	width: 100% !important;
+	height: 100% !important;
 	object-fit: cover;
 	padding: .5em;
 }
 .mg-prev, .mg-next {
+	cursor: pointer;
 	width: 30px;
 	height: 30px;
-	border-radius: 00%;
+	border: none;
+	text-decoration: none;
 	justify-content: center;
 	align-items: center;
 	display: flex;
 	font-size: 24px;
+	position: absolute;
+	top: 150px;
+	background-color: white;
+}
+.mg-prev{
+	left:-15px;
+}
+.mg-next {
+	right:-15px;
 }
 
 .quote {
@@ -148,6 +162,11 @@ body {
 	font-family: 'Spectral';
 	font-weight: 800;
 	font-size: 22px;
+}
+
+.item-column.mb-4.col-12.col-sm-6.col-md-4.col-lg-4.col-xl-4 img {
+	width: 438px;
+	height: 438px;
 }
 
 #services {
@@ -195,6 +214,10 @@ body {
 
 #contact .container {
 	display: flex;
+}
+.picture.right img {
+	width: 418px;
+	height: 417px;
 }
 .picture.right::before {
 	content: ' ';
