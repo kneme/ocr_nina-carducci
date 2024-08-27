@@ -55,6 +55,12 @@
       } else {
       }
     });
+    $(".gallery-items-row").on("keypress", function(e) {
+      if (e.which == 13 && options.lightBox) {
+        $.fn.mauGallery.methods.openLightBox($(document.activeElement), options.lightboxId);
+      } else {
+      }
+    });
     var gallery = $(".gallery");
     gallery.on("click", ".nav-link", $.fn.mauGallery.methods.filterByTag);
     gallery.on("click", ".mg-prev", () =>
