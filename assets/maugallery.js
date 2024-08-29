@@ -55,14 +55,28 @@
       } else {
       }
     });
-    $(".gallery-items-row").on("keypress", function(e) {
+    const galleryDiv = $(".gallery-items-row");
+    galleryDiv.on("keypress", function(e) {
       if (e.which == 13 && options.lightBox) {
-        const galleryItems = document.querySelectorAll(".gallery-item");
-        [...galleryItems].forEach(item => {
+        [...$(".gallery-item")].forEach(item => {
           item.setAttribute("tabindex", "0");
-        })
+        });
+        document.querySelector(".gallery-items-row").setAttribute("tabindex", "");
+        if (galleryDiv.find('div[style=""]').length === 0) {
+          $(".gallery-item")[0].focus();
+        } else {
+          galleryDiv.find('div[style=""]').children()[0].focus();
+        }
       } else {
       }
+    });
+    $(document).ready(() => {
+      galleryDiv.find("img").on("keypress", function(e) {
+        if (e.which == 13 && options.lightBox) {
+          $.fn.mauGallery.methods.openLightBox($(document.activeElement), options.lightboxId);
+        } else {
+        }
+      });
     });
     var gallery = $(".gallery");
     gallery.on("click", ".nav-link", $.fn.mauGallery.methods.filterByTag);
