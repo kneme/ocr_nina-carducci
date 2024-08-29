@@ -57,7 +57,10 @@
     });
     $(".gallery-items-row").on("keypress", function(e) {
       if (e.which == 13 && options.lightBox) {
-        $.fn.mauGallery.methods.openLightBox($(document.activeElement), options.lightboxId);
+        const galleryItems = document.querySelectorAll(".gallery-item");
+        [...galleryItems].forEach(item => {
+          item.setAttribute("tabindex", "0");
+        })
       } else {
       }
     });
@@ -78,7 +81,7 @@
           .first()
           .hasClass("row")
       ) {
-        element.append('<div class="gallery-items-row row"></div>');
+        element.append('<div tabindex="0" class="gallery-items-row row"></div>');
       }
     },
     wrapItemInColumn(element, columns) {
